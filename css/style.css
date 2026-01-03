@@ -1,0 +1,517 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  background-color: #0f3d2e; /* Tu verde original */
+  /* Degradado que simula un brillo plateado en el centro */
+  background: radial-gradient(circle at center, #1a4d3c 0%, #0f3d2e 70%, #0a2920 100%);
+  color: #e8d8c4;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  line-height: 1.4;
+  position: relative;
+  overflow-x: hidden;
+}
+/* Detalle de destellos plateados sutiles en el fondo */
+/* EFECTO GLITTER PLATEADO */
+body {
+    background-color: #0f3d2e; /* Verde fondo */
+    position: relative;
+}
+body::after {
+    content: "";
+    position: fixed;
+    top: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
+    /* Puntos plateados de alta densidad */
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+        radial-gradient(2px 2px at 40px 70px, #e0e0e0, transparent),
+        radial-gradient(1.5px 1.5px at 100px 150px, #ffffff, transparent),
+        radial-gradient(2px 2px at 150px 50px, #c0c0c0, transparent),
+        radial-gradient(1px 1px at 200px 100px, #ffffff, transparent);
+    background-repeat: repeat;
+    background-size: 250px 250px;
+    opacity: 0.6; /* Mayor opacidad para que se vea sí o sí */
+    z-index: 0; 
+    pointer-events: none;
+    animation: moveGlitter 10s linear infinite;
+}
+/* Animación para que los brillos giren y se muevan */
+@keyframes moveGlitter {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+/* IMPORTANTE: Esto hace que tus textos y fotos queden POR ENCIMA del brillo */
+.section, .container, section, div, h1, h2, h3, p, img {
+    position: relative;
+    z-index: 5;
+}
+/* MÚSICA */
+.spotify-player {
+  background-color: #005f73; /* El color azulado/verde de la foto */
+  width: 90%;
+  max-width: 350px;
+  margin: 20px auto;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  gap: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  font-family: 'Montserrat', sans-serif;
+}
+.album-art img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.song-info {
+  flex-grow: 1;
+  text-align: left;
+}
+.song-title {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.artist-name {
+  color: #b3d1d8;
+  margin: 2px 0 10px 0;
+  font-size: 0.8rem;
+}
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.btn-control {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+}
+.btn-play {
+  background-color: #ffffff;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #005f73;
+  cursor: pointer;
+  margin-left: auto; /* Empuja el botón play a la derecha */
+}
+.music-player {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 180px;
+  z-index: 9999;
+}
+/* HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.schedule-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.clock-icon {
+    font-size: 2rem;
+    color: #c0c0c0; /* Plateado */
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+.schedule-title {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1.2rem;
+    color: #e8d8c4; /* El crema que venís usando */
+    margin-bottom: 5px;
+}
+.schedule-time {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem; /* Grande para que destaque */
+    font-weight: 200; /* Finito y elegante */
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 61, 46, 0.55);
+}
+.hero-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.hero-text h1,
+.hero-text h2 {
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+  color: #ffffff;
+}
+.hero-text h1 {
+  font-size: 2.6rem;
+}
+.hero-text h2 {
+  font-size: 3.2rem;
+}
+.date {
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+/* SECCIONES */
+.section {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.map-container {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px; /* Bordes redondeados como la imagen */
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin: 0 auto;
+}
+.map-icon {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+/* IMAGEN */
+.photo {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 16px;
+}
+/* FRASES */
+.phrase,
+.quote {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  max-width: 300px;
+  line-height: 1.35;
+}
+/* CUENTA REGRESIVA */
+.countdown {
+  display: flex;
+  gap: 10px;
+}
+.countdown div {
+  border: 1px solid rgba(232, 216, 196, 0.5);
+  padding: 10px 8px;
+  min-width: 70px; /* Un poquito más ancho para que entren bien los números */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Contenedor principal centrado */
+/* Contenedor principal centrado */
+.confirmacion-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; 
+  padding: 60px 20px;
+}
+.confirm-text {
+  font-family: "Playfair Display", serif; /* La misma que usas en el body */
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #e8d8c4;
+  text-transform: uppercase; /* Opcional: para darle un toque más elegante */
+  letter-spacing: 2px;
+}
+/* Botón de WhatsApp con el icono debajo */
+.whatsapp-btn {
+  color: #e8d8c4;
+  font-size: 4rem; /* Tamaño destacado */
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+  animation: pulse-soft 2.5s infinite;
+}
+/* Transición suave al pasar el mouse o tocar */
+.whatsapp-btn:hover {
+  color: #25d366; /* El verde de WhatsApp */
+  transform: scale(1.15) rotate(5deg); /* Crece y gira un poquito */
+}
+/* Animación de pulso sutil */
+@keyframes pulse-soft {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+    text-shadow: 0 0 20px rgba(232, 216, 196, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+.countdown span {
+  font-size: 1.4rem;
+
+}
+.countdown small {
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+}
+/* TEXTOS */
+/* Estilo para el texto del código de vestimenta */
+.dress-code-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+/* Estilo para la percha aesthetic */
+.dress-code-card {
+  border: 1px solid rgba(192, 192, 192, 0.3); /* Borde plateado suave */
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 300px;
+  padding: 30px !important;
+}
+.hanger-container {
+  font-size: 2.5rem;
+  color: #c0c0c0; /* Color Plateado (Silver) */
+  margin-top: 15px;
+  /* Brillo plateado al icono */
+  filter: drop-shadow(0 0 5px rgba(192, 192, 192, 0.5));
+  animation: float 3s ease-in-out infinite;
+}
+/* Animación para que la percha flote suavemente */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.place {
+  font-size: 0.95rem;
+}
+/* LINKS */
+.link {
+  color: #e8d8c4;
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.link.big {
+  font-size: 1rem;
+}
+/* REGALO */
+.gift-section {
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gift-icon {
+  font-size: 2.5rem;
+  color: #e8d8c4;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+.gift-text {
+  max-width: 320px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-family: "Montserrat", sans-serif;
+}
+/* La tarjeta del alias */
+.alias-card {
+  background-color: rgba(232, 216, 196, 0.1);
+  border: 1px dashed #e8d8c4;
+  padding: 15px 25px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+.alias-card:hover {
+  background-color: rgba(232, 216, 196, 0.15);
+  transform: translateY(-3px);
+}
+.alias-label {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+.alias-value {
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+}
+.copy-btn {
+  background: none;
+  border: none;
+  color: #e8d8c4;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 5px;
+  transition: transform 0.2s;
+}
+.copy-btn:active {
+  transform: scale(0.9);
+}
+/* Contenedor del icono superior */
+.calendar-icon-container {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+/* Estilo del botón azul tipo Google */
+.btn-google {
+  background-color: #006ce5; /* El azul de Google */
+  color: #ffffff !important; /* Texto blanco */
+  text-decoration: none;
+  padding: 12px 35px;
+  border-radius: 30px; /* Bordes redondeados tipo píldora */
+  font-weight: 500;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.btn-google:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+.swiper {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.photo-carousel {
+  width: 90%; /* Deja un margen a los costados */
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 30px; /* Bordes redondeados como en tu foto */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  border: 2px solid rgba(232, 216, 196, 0.2);
+}
+/* Color de los puntitos de navegación */
+.swiper-pagination-bullet {
+  background: #c0c0c0 !important; /* Plateado */
+  opacity: 0.5;
+}
+.swiper-pagination-bullet-active {
+  background: #ffffff !important; /* Blanco cuando está activo */
+  opacity: 1;
+}
+/* Asegura que el icono dentro del botón se vea bien */
+.btn-google i {
+  font-size: 1.2rem;
+}
+/* FOOTER */
+.footer {
+  padding: 40px 20px;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.wait {
+  font-size: 1.1rem;
+}
+.signature {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+.final-signature {
+  padding: 60px 20px 80px; /* Espacio al final de la página */
+  text-align: center;
+}
+
+.mis-xv {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 0.9rem;
+  color: #e8d8c4;
+  margin-bottom: -10px; /* Para que el nombre quede cerquita */
+  opacity: 0.8;
+}
+.nombre-ludmi {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem; /* Tamaño grande y llamativo */
+  color: #e8d8c4;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-top: 0;
+}
+.footer-sl {
+  padding: 40px 0 20px; /* Espacio superior para que no quede pegado */
+  text-align: center;
+  opacity: 0.6; /* Lo hace sutil */
+}
+
+.footer-sl p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem; /* Tamaño chiquito y elegante */
+  letter-spacing: 3px; /* Espaciado entre letras para look de marca */
+  color: #c0c0c0; /* Tono plateado suave */
+  margin: 0;
+}
+
+.heart-mini {
+  font-size: 0.6rem;
+  margin-left: 3px;
+  display: inline-block;
+  animation: pulse-heart 2s infinite; /* El corazón late suavecito */
+}
+
+/* Animación del corazón */
+@keyframes pulse-heart {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); color: #ffffff; }
+  100% { transform: scale(1); }
+}
